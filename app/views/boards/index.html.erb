@@ -1,0 +1,14 @@
+<h1>Message boards</h1>
+
+<table>
+  <tr>
+    <th align="left">Title</th>
+  </tr>
+
+<% @boards.each do |board| %>
+  <tr>
+    <td><%= link_to board.title, board %></td>
+  </tr>
+<% end %>
+</table>
+

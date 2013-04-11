@@ -1,7 +1,17 @@
 Cashify::Application.routes.draw do
+
+  resources :boards do
+      resources :conversations
+  end
+
+  resources :users
+
   get "home/index"
 
   root :to=> "home#index"
+
+  get '/boards/:board_id/conversations/:id/reply' => "conversations#reply", :as => :reply_board_conversation
+  post '/boards/:board_id/conversations/:id/reply' => "conversations#save_reply", :as => :reply_board_conversation
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
