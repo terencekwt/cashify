@@ -1,10 +1,11 @@
-<%= link_to @conversation.board.title, @conversation.board%>
+<%= link_to 'Main Forum', boards_path %> &gt; <%= link_to @board.title, @board %>
+&gt; <%= @conversation.title %>
+
+<br />
+
 <p id="notice"><%= notice %></p>
- 
- 
- 
-<table>
-  <tr>
+<table class="table table-bordered">
+  <tr class="success">
     <th colspan="2"><%= @conversation.title %></th>
   </tr>
   <% @conversation.comments.each do |comment| %>
@@ -21,5 +22,5 @@
   </tr>
   <% end %>
 </table>
-<%= link_to 'Reply', reply_board_conversation_url(:board_id=>@board, :id=>@conversation)%> |
-<%= link_to @conversation.board.title, @conversation.board%>
+<%= link_to 'Reply', reply_board_conversation_url(:board_id=>@board, :id=>@conversation), :class=>"btn"%> 
+<%= link_to 'Back', @conversation.board, :class=>"btn"%>

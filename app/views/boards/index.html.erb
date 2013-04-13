@@ -1,14 +1,33 @@
-<h1>Message boards</h1>
-
-<table>
-  <tr>
-    <th align="left">Title</th>
-  </tr>
-
 <% @boards.each do |board| %>
-  <tr>
-    <td><%= link_to board.title, board %></td>
+    <table class="table table-bordered">
+  <tr class="success">
+  <td style="width:64%">
+      <h4><%= link_to board.title, board %></h4></td>
+      <td style="width:12%">comments</td>
+      <td style="width:12%">last commented</td>
+      <td style="width:12%">created by</td>
   </tr>
-<% end %>
+  <% board.conversations.each do |conversation| %>
+  <tr>
+    <td>
+    <%= image_tag("footprint.png", :alt => "banner", :width=>"40px", :border=>"1px solid black") %>
+      <%= link_to conversation.title, board_conversation_path(:board_id => board, :id => conversation) %>
+      <!-- #conversation.user.username %>
+      -->
+      <i> by terencekwt</i>
+    </td>
+    <td>
+      <%= conversation.comments.count - 1%>
+    </td>
+    <td>
+      <%= conversation.comments.find(:last).created_at %><br />
+      <!-- #conversation.comments.find(:last).user.username %>
+      -->
+      by terencekwt
+    </td>
+    <td>terencekwt</td>
+  </tr>
+  <% end %>
 </table>
+<% end %>
 

@@ -1,18 +1,23 @@
-<%= link_to 'Rails Boards', boards_path %> &gt; <%= link_to @board.title, @board %> <br />
- 
-<table>
-  <tr>
-    <th>Post / Author</th>
-    <th>Last Reply</th>
-    <th>Number of Replies</th>
+<%= link_to 'Main Forum', boards_path %> &gt; <%= link_to @board.title, @board %> <br />
+
+<table class="table table-bordered">
+  <tr class="success">
+  <td style="width:64%">
+      <h4><%= link_to @board.title, @board %></h4></td>
+      <td style="width:12%">comments</td>
+      <td style="width:12%">last commented</td>
+      <td style="width:12%">created by</td>
   </tr>
 <% @board.conversations.each do |conversation| %>
   <tr>
     <td>
-      <%= link_to conversation.title, board_conversation_path(:board_id => @board, :id => conversation) %><br />
+      <%= link_to conversation.title, board_conversation_path(:board_id => @board, :id => conversation) %>
       <!-- #conversation.user.username %>
       -->
-      terencekwt
+      <i>by terencekwt</i>
+    </td>
+    <td>
+      <%= conversation.comments.count - 1%>
     </td>
     <td>
       <%= conversation.comments.find(:last).created_at %><br />
@@ -20,12 +25,11 @@
       -->
       by terencekwt
     </td>
-    <td>
-      <%= conversation.comments.count - 1%>
-    </td>
+    <td>terencekwt</td>
+
   </tr>
 <% end %>
 </table>
     
  
-<%= link_to 'Post New Message', new_board_conversation_url(@board) %>
+<%= link_to 'Post New Message', new_board_conversation_url(@board) , :class=>"btn btn-success"%>

@@ -8,8 +8,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="container" id="forum_body">
+<div class="row-fluid">
+    <div class="span4" id="banner">
+    <%= image_tag("banner.png", :alt => "banner", :width=>"200px") %>
+    </div>
+    <div class="span4" id="menu">
+        <a href="/" class="btn btn-success">map</a>
+        <a href="/boards" class="btn btn-success">forum</a>
+        <a href="/" class="btn btn-success">market</a>
+        <a href="/" class="btn btn-success">news</a>
+    </div>
+    <div class="span4">
+        <form class="form-search">
+          <input type="text" class="input-medium search-query">
+          <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+</div>
+<hr/>
 <%= yield %>
+
+<footer>
+<hr/>
+copyrighted 2013 by Terence Tam 
+</footer>
+</div>
 
 </body>
 </html>
