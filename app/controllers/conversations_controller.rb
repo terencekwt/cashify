@@ -50,7 +50,7 @@ class ConversationsController < ApplicationController
 
     respond_to do |format|
       if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Post was successfully created.' }
+        format.html { redirect_to(board_path(@board), notice: 'Post was successfully created.') }
       else
         format.html { render action: "new" }
       end
@@ -85,21 +85,24 @@ class ConversationsController < ApplicationController
   
   # POST /conversations/reply
   def save_reply
+    '''
     if !current_user
       redirect_to(:login, :notice =>"Please login before posting")
       return 1;
     end
+    '''
     
     if Conversation.exists?(params[:id])
       @conversation = Conversation.find(params[:id])
       @comment = @conversation.comments.build(params[:comment])
-      @comment.user_id = current_user.id
+      @comment.user_id = 1
+      #@comment.user_id = current_user.id
     else
       redirect_to(boards_path, :notice =>"Please specify a valid board")
     end
         
     respond_to do |format|
-      if current_user && @comment.save
+      if @comment.save  #&& current_user
         format.html { redirect_to(board_path(@board), :notice => 'Your reply was posted') }
       else
         format.html { render :action => "new" }
@@ -114,8 +117,7 @@ class ConversationsController < ApplicationController
     @conversation.destroy
 
     respond_to do |format|
-      format.html { redirect_to conversations_url }
-      format.json { head :no_content }
+      format.html { redirect_to board_path(@board) }
     end
   end
 

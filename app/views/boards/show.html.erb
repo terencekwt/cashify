@@ -10,11 +10,15 @@
   <tr>
     <td>
       <%= link_to conversation.title, board_conversation_path(:board_id => @board, :id => conversation) %><br />
-      <%= conversation.user.username %>
+      <!-- #conversation.user.username %>
+      -->
+      terencekwt
     </td>
     <td>
       <%= conversation.comments.find(:last).created_at %><br />
-      by <%= conversation.comments.find(:last).user.username %>
+      <!-- #conversation.comments.find(:last).user.username %>
+      -->
+      by terencekwt
     </td>
     <td>
       <%= conversation.comments.count - 1%>
