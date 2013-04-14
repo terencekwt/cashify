@@ -1,4 +1,7 @@
 class BoardsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /boards
   # GET /boards.json
   def index

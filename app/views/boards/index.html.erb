@@ -1,3 +1,5 @@
+<p>Hello, <%= current_user.email %>
+
 <% @boards.each do |board| %>
     <table class="table table-bordered">
   <tr class="success">
@@ -5,27 +7,25 @@
       <h4><%= link_to board.title, board %></h4></td>
       <td style="width:12%">comments</td>
       <td style="width:12%">last commented</td>
-      <td style="width:12%">created by</td>
+      <td style="width:12%">created at</td>
   </tr>
-  <% board.conversations.each do |conversation| %>
+  <% board.recent_conversations(5).each do |conversation| %>
   <tr>
     <td>
     <%= image_tag("footprint.png", :alt => "banner", :width=>"40px", :border=>"1px solid black") %>
       <%= link_to conversation.title, board_conversation_path(:board_id => board, :id => conversation) %>
-      <!-- #conversation.user.username %>
-      -->
-      <i> by terencekwt</i>
+      <i>by <%= conversation.user.username %></i>
     </td>
     <td>
       <%= conversation.comments.count - 1%>
     </td>
     <td>
       <%= conversation.comments.find(:last).created_at %><br />
-      <!-- #conversation.comments.find(:last).user.username %>
-      -->
-      by terencekwt
+      by <%= conversation.comments.find(:last).user.username %>
     </td>
-    <td>terencekwt</td>
+    <td>
+      <%= conversation.created_at %>
+    </td>
   </tr>
   <% end %>
 </table>

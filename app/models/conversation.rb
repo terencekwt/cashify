@@ -4,4 +4,5 @@ class Conversation < ActiveRecord::Base
   belongs_to :user
   belongs_to :board
   validates_presence_of :title
+
 end
