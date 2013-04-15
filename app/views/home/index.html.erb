@@ -2,12 +2,14 @@
     <div id="game_frame">
     <div id="collie_frame"></div>
     </div>
+    <audio id="audio" src="./assets/melody.wav">
+    </audio>
 </div>
 <script type="text/javascript">
+    audio = document.getElementById("audio");
+    audio.play();
     collie.ImageManager.add({
         "logo": "http://rlv.zcache.com/i_love_hong_kong_bumper_stickers-r6a0661bffe77420083cc91a2005d59ec_v9wht_8byvr_512.jpg",
-        "two": "http://rlv.zcache.com/i_love_taiwan_print-r62fafbfdb5ad4f60882714d678a9af54_j0e_400.jpg",
-
         "map": "./assets/map.png"
     });
 
@@ -64,19 +66,12 @@
                         to: 210,
                         set: "y"
                         }).
-                    delay(function(){ map2.addTo(layer) }, 50);
+                    delay(function(){
+                        collie.Timer.stop(rabbit);
+                    }, 50);
+                    //delay(function(){ map2.addTo(layer) }, 50);
             }
         });
-
-    /*
-    var stat = new collie.DisplayObject({
-        width : 200,
-        height : 100,
-        x : 0,
-        y : 419,
-        backgroundImage : "logo"
-    }).addTo(layer);
-    */
 
     collie.Renderer.addLayer(layer);
 
