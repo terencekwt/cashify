@@ -16,6 +16,7 @@ Cashify::Application.routes.draw do
   get '/dashboard', :to => 'dashboard#index'
   get '/market', :to => 'dashboard#market'
   get '/news', :to => 'home#news' 
+  get '/game1', :to => 'dashboard#game1' 
 
   root :to=> "home#index"
 
