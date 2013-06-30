@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cashify</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "collie.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container" id="forum_body">
+<div class="row-fluid">
+    <div class="span12 text-center" id="banner">
+    <%= image_tag("banner_large.png", :alt => "banner", :width=>"400px") %>
+    <br/>
+    <%= render :partial => '/devise/sessions/new' %>
+    <%= image_tag("home_submenu.png", :alt => "home_submenu", :width=>"300px") %>
+    </div>
+</div>
+
+<footer>
+<hr/>
+copyrighted 2013 by Terence Tam 
+</footer>
+</div>
+
+</body>
+</html>

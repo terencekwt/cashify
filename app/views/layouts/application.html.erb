@@ -20,13 +20,14 @@
         <a href="/" class="btn btn-success">news</a>
     </div>
     <div class="span4">
-        <% if user_signed_in? %>
-            Hello, <%= current_user.username %>! | 
-            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-        <% else %>
-            <%= link_to "Sign In", "/users/sign_in" %>
-        <% end %>
         <form class="form-search">
+            <% if user_signed_in? %>
+                Hello, <%= current_user.username %>! | 
+                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+                <%= link_to "Sign In", "/users/sign_in" %>
+            <% end %>
+          <br/>
           <input type="text" class="input-medium search-query">
           <button type="submit" class="btn">Search</button>
         </form>
