@@ -1,5 +1,9 @@
 Cashify::Application.routes.draw do
 
+  get "dashboard/index"
+
+  get "dashboard/market"
+
   devise_for :users
 
   resources :boards do
@@ -8,8 +12,10 @@ Cashify::Application.routes.draw do
 
   resources :users
 
-  get "home/index"
-  get "home/dashboard"
+  get 'home/index'
+  get '/dashboard', :to => 'dashboard#index'
+  get '/market', :to => 'dashboard#market'
+  get '/news', :to => 'home#news' 
 
   root :to=> "home#index"
 

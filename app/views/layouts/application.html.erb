@@ -14,20 +14,21 @@
     <%= image_tag("banner.png", :alt => "banner", :width=>"200px") %>
     </div>
     <div class="span4" id="menu">
-        <a href="/" class="btn btn-success">map</a>
-        <a href="/boards" class="btn btn-success">forum</a>
-        <a href="/" class="btn btn-success">market</a>
-        <a href="/" class="btn btn-success">news</a>
+        <a href="/dashboard" class="btn btn-success">Game</a>
+        <a href="/boards" class="btn btn-success">Forum</a>
+        <a href="/market" class="btn btn-success">Market</a>
+        <a href="/news" class="btn btn-success">News</a>
     </div>
     <div class="span4">
         <form class="form-search">
             <% if user_signed_in? %>
-                Hello, <%= current_user.username %>! | 
-                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+                Hello, <%= current_user.username %>!  
+                <%= link_to "(Edit)", edit_user_registration_path %>
+                | <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
             <% else %>
                 <%= link_to "Sign In", "/users/sign_in" %>
             <% end %>
-          <br/>
+            <br/><br/>
           <input type="text" class="input-medium search-query">
           <button type="submit" class="btn">Search</button>
         </form>
