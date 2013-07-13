@@ -1,7 +1,6 @@
 audio = document.getElementById("audio");
 audio.play();
 collie.ImageManager.add({
-    "logo": "http://rlv.zcache.com/i_love_hong_kong_bumper_stickers-r6a0661bffe77420083cc91a2005d59ec_v9wht_8byvr_512.jpg",
     "map": "/assets/map.png"
 });
 
@@ -59,9 +58,9 @@ var gate = new collie.DisplayObject({
                     set: "y"
                     }).
                 delay(function(){
-                    collie.Timer.stop(rabbit);
+                    //collie.Timer.stop(rabbit);
+                    window.location = "/game1";
                 }, 50);
-                //delay(function(){ map2.addTo(layer) }, 50);
         }
     });
 

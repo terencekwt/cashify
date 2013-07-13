@@ -1,7 +1,6 @@
 Cashify::Application.routes.draw do
 
   get "dashboard/index"
-
   get "dashboard/market"
 
   devise_for :users
@@ -17,11 +16,14 @@ Cashify::Application.routes.draw do
   get '/market', :to => 'dashboard#market'
   get '/news', :to => 'home#news' 
   get '/game1', :to => 'dashboard#game1' 
+  get '/admin', :to => 'dashboard#admin'
 
   root :to=> "home#index"
 
   get '/boards/:board_id/conversations/:id/reply' => "conversations#reply", :as => :reply_board_conversation
   post '/boards/:board_id/conversations/:id/reply' => "conversations#save_reply", :as => :reply_board_conversation
+  
+  match '/api/:action' => 'api'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
