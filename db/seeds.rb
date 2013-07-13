@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 topics = Board.create([{title: 'Tips of the Day'},{title: 'Q & A'},{title: 'Random Shares'}])
-events = Event.create([{name: 'MacBook Air', price: 400},{name: 'MacBook Air', price: 400}])
+events = Item.create([{name: 'MacBook Air', price: 400},{name: 'MacBook Air', price: 400}])
