@@ -3,11 +3,11 @@ Cashify
 
 Overview
 -------
-An educational game for finance
+An educational game for finance, making learning finance a much more fun experience!
 
 Setup
 ------
-Install Rails. Make sure you have Ruby 1.9.2 or newer and Rails 3.x. If you are developing on a Mac, it will be easier to manage your versions of Ruby and Rails using RVM. After cloning this repo, go into the directory and run
+Install Rails. Make sure you have Ruby 1.9.2 or newer before installing Rails. If you are developing on a Mac, it will be easier to manage your versions of Ruby and Rails using RVM. After cloning this repo, go into the directory and run
 
     bundle install
     rake db:migrate
@@ -16,9 +16,32 @@ Install Rails. Make sure you have Ruby 1.9.2 or newer and Rails 3.x. If you are 
 
 Then your server should be up. Your server should be up on your host port 3000 by default.
 
+To run the console to manually add entries to database, try
+
+    rails c
+
 Working on New Features
 -------
 It is recommended that you make a new branch when you work on a new feature. Only merge it to master when it is stable. For example, if you are working on building a forum, make a new branch called Forum, and develop in that branch.
+
+Components
+-------
+-Marketplace-user can buy and shop items with their earned points
+-Interactive map-a place where user can walk through and enter games
+-Forum-a forum for cashify
+-News feeds- blogs and feeds from the Cashify team
+
+Controllers
+------
+-Home: serves all pages that does not need authentication
+-Dashboard: serves general pages that requires user's authentication
+-API: Still in development. the api_controller should handle the ajax requests from the javascript games.
+
+Models
+-----
+Self explanatory. User is in user table etc...
+
+Most of the models follows CRUD conventions and mapped as resources. Run rake routes to see the possible routing.
 
 Authentication
 ------
@@ -34,7 +57,15 @@ Front-End (Game JavaScripts)
 ------
 In order not to mix the website's JS with the game JS files, I made it so that all the game related js files should be in the /public folder, while the website related js and css files follows the rails convention and be put in the assets folder. Since the game can be executed independent of the website beside making ajax calls, we can just render games inside iframes.
 
-*Note*: It is good practice to write js code with variables scoped in a namespace, because the browser js engine just run them together, and it will be messy with variables with the same names all in the global scopes. 
+**Note**: It is good practice to write js code with variables scoped in a namespace, because the browser js engine just run them together, and it will be messy with variables with the same names all in the global scopes. 
+
+Bug tracking/Backlog
+------
+Use the issues tab in github
+
+Testing
+------
+Not setup yet. Should use rspec tests if we want to be strict with TDD.
 
 Deploying
 -------
