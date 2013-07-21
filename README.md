@@ -26,16 +26,18 @@ It is recommended that you make a new branch when you work on a new feature. Onl
 
 Components
 -------
--Marketplace-user can buy and shop items with their earned points
--Interactive map-a place where user can walk through and enter games
--Forum-a forum for cashify
--News feeds- blogs and feeds from the Cashify team
+
+    -Marketplace-user can buy and shop items with their earned points
+    -Interactive map-a place where user can walk through and enter games
+    -Forum-a forum for cashify
+    -News feeds- blogs and feeds from the Cashify team
 
 Controllers
 ------
--Home: serves all pages that does not need authentication
--Dashboard: serves general pages that requires user's authentication
--API: Still in development. the api_controller should handle the ajax requests from the javascript games.
+
+    -Home: serves all pages that does not need authentication
+    -Dashboard: serves general pages that requires user's authentication
+    -API: Still in development. the api_controller should handle the ajax requests from the javascript games.
 
 Models
 -----
