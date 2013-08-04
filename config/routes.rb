@@ -1,5 +1,11 @@
 Cashify::Application.routes.draw do
 
+  get "items/edit"
+
+  get "items/create"
+
+  get "items/update"
+
   get "dashboard/index"
   get "dashboard/market"
 
@@ -9,6 +15,7 @@ Cashify::Application.routes.draw do
       resources :conversations
   end
 
+  resources :items
   resources :users
 
   get 'home/index'

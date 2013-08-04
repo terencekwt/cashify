@@ -8,6 +8,8 @@ class DashboardController < ApplicationController
       #admin dashboard
       if current_user.admin?
           @items = Item.all
+          @users = User.all
+          @boards = Board.all
       else
           #redirect_to action: 'index'
           @items = Item.all
