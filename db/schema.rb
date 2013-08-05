@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(:version => 20130713075743) do
     t.datetime "updated_at",               :null => false
   end
 
-  create_table "buy_items", :force => true do |t|
-    t.string   "name"
-    t.integer  "value"
-    t.string   "imgUrl"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "conversation_id"
@@ -48,13 +40,6 @@ ActiveRecord::Schema.define(:version => 20130713075743) do
 
   add_index "conversations", ["board_id"], :name => "index_conversations_on_board_id"
   add_index "conversations", ["user_id"], :name => "index_conversations_on_user_id"
-
-  create_table "games", :force => true do |t|
-    t.string   "name"
-    t.integer  "visits"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "items", :force => true do |t|
     t.string   "name"
