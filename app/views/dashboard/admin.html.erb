@@ -24,7 +24,7 @@
 <% end %>
 </tbody>
 </table>
-<a href="#" class="btn btn-primary">Add New Event</a>
+<%= link_to "Add New Event", new_item_path, :class=>"btn btn-primary" %></td>
 
 <h3>Coupons</h3>
 <table class="table table-striped">
@@ -32,7 +32,8 @@
     <tr>
         <td>Name</td>
         <td>Price</td>
-        <td></td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
 </thead>
 <tbody>
@@ -40,12 +41,13 @@
     <tr>
     <td><%= item.name %></td>
     <td><%= item.price %></td>
-    <td><button>Delete</button></td>
+    <td><%= link_to "Edit", edit_item_path(item.id), :class=>"btn" %></td>
+    <td><%= link_to "Delete", item_path(item.id), :class=>"btn", :method=>"delete" %></td>
     </tr>
 <% end %>
 </tbody>
 </table>
-<a href="#" class="btn btn-primary">Add New Donation</a>
+<%= link_to "Add New Coupons", new_item_path, :class=>"btn btn-primary" %></td>
 
 <h3>Donate</h3>
 <table class="table table-striped">
@@ -53,7 +55,8 @@
     <tr>
         <td>Name</td>
         <td>Price</td>
-        <td></td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
 </thead>
 <tbody>
@@ -61,12 +64,13 @@
     <tr>
     <td><%= item.name %></td>
     <td><%= item.price %></td>
-    <td><button>Delete</button></td>
+    <td><%= link_to "Edit", edit_item_path(item.id), :class=>"btn" %></td>
+    <td><%= link_to "Delete", item_path(item.id), :class=>"btn", :method=>"delete" %></td>
     </tr>
 <% end %>
 </tbody>
 </table>
-<a href="#" class="btn btn-primary">Add New Coupon</a>
+<%= link_to "Add New Donations", new_item_path, :class=>"btn btn-primary" %></td>
 </div>
 
 <div class="span6">

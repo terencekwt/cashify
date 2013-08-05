@@ -27,16 +27,18 @@ class ItemsController < ApplicationController
   end
 
   def update
-
+    @item = Item.find(params[:id])
+    if @item.update_attributes(params[:item])
+        redirect_to '/admin'
+    end
   end
 
   def new
     @item = Item.new
-
   end
 
   def create
-    @item = Item.new(params[:board])
+    @item = Item.new(params[:item])
     @item.save
     respond_to do |format|
       format.html { redirect_to '/admin', notice: 'Board was successfully created.' }
@@ -44,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Board.find(params[:id])
+    @item = Item.find(params[:id])
     @item.destroy
 
     redirect_to '/admin'

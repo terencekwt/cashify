@@ -11,10 +11,7 @@ class DashboardController < ApplicationController
           @users = User.all
           @boards = Board.all
       else
-          #redirect_to action: 'index'
-          @items = Item.all
-          @users = User.all
-          @boards = Board.all
+          redirect_to action: 'index'
       end
   end
 end
